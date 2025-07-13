@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* @media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .print-area, .print-area * {
+    visibility: visible;
+  }
+
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+} */
+
+/* Invoice Paper Size Optimized CSS */
+@media print {
+  /* Hide everything first */
+  body * {
+    visibility: hidden;
+  }
+  
+  /* Show only the print area */
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+  
+  /* Optimize for Invoice paper size (typically 140mm x 216mm or 5.5" x 8.5") */
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 8px; /* Smaller padding for invoice paper */
+    box-sizing: border-box;
+  }
+  
+  /* Body optimizations for small paper */
+  body {
+    margin: 0;
+    padding: 0;
+    background: white !important;
+    color: black !important;
+    font-size: 9pt; /* Smaller font for invoice paper */
+    line-height: 1.2; /* Tighter line height */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header adjustments */
+  .print-area h1 {
+    font-size: 16pt !important;
+    margin: 0 0 4px 0 !important;
+  }
+  
+  .print-area h2 {
+    font-size: 12pt !important;
+    margin: 0 0 3px 0 !important;
+  }
+  
+  .print-area h3 {
+    font-size: 10pt !important;
+    margin: 0 0 2px 0 !important;
+  }
+  
+  /* Compact spacing */
+  .print-area p {
+    margin: 2px 0 !important;
+  }
+  
+  .print-area div {
+    margin: 1px 0 !important;
+  }
+  
+  /* Table optimizations for invoice paper */
+  .print-area table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 4px 0 !important;
+    font-size: 8pt !important;
+  }
+  
+  .print-area th,
+  .print-area td {
+    padding: 2px 4px !important;
+    border: 1px solid #000 !important;
+    font-size: 8pt !important;
+  }
+  
+  .print-area th {
+    background: #f0f0f0 !important;
+    font-weight: bold !important;
+  }
+  
+  /* Remove unnecessary elements that take space */
+  .print-area {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+  
+  /* Ensure content fits on one page */
+  .print-area {
+    page-break-inside: avoid;
+    overflow: hidden;
+  }
+  
+  /* Compact grid layout */
+  .print-area .grid {
+    display: block !important;
+  }
+  
+  .print-area .grid > div {
+    display: block !important;
+    margin-bottom: 6px !important;
+  }
+  
+  /* Hide any buttons or non-essential elements */
+  button,
+  .print\:hidden {
+    display: none !important;
+  }
+}
+
+/* Additional optimizations for invoice paper */
+@page {
+  size: 5.5in 8.5in; /* Standard invoice paper size */
+  margin: 0.25in; /* Minimal margins */
+}
+
+/* Specific adjustments for your invoice layout */
+@media print {
+  .print-area .text-center {
+    text-align: center !important;
+  }
+  
+  .print-area .space-y-2 > * + * {
+    margin-top: 2px !important;
+  }
+  
+  .print-area .space-y-3 > * + * {
+    margin-top: 3px !important;
+  }
+  
+  .print-area .mb-8 {
+    margin-bottom: 8px !important;
+  }
+  
+  .print-area .mb-4 {
+    margin-bottom: 4px !important;
+  }
+  
+  .print-area .pb-2 {
+    padding-bottom: 2px !important;
+  }
+  
+  .print-area .border-b {
+    border-bottom: 1px solid #000 !important;
+  }
+}
