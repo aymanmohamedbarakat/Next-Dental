@@ -1,8 +1,8 @@
 'use client'
 
 import { useCallback } from "react"
-import { useBookingStore } from "../_store"
 import { CheckCircle, CreditCard, Filter, Users } from "lucide-react";
+import { useBookingStore } from "../../_store";
 
 export default function FilterControls() {
     const { appointments, filterAppointments, applyFiltersAndSearch, currentFilter, filteredAppointments, } = useBookingStore();

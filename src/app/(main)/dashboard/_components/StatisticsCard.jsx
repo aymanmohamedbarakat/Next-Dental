@@ -1,8 +1,8 @@
 'use client'
 
 import { memo, useEffect, useMemo } from "react"
-import { useBookingStore } from "../_store"
 import { Calendar, CheckCircle, CreditCard, DollarSign, TrendingDown, TrendingUp } from "lucide-react"
+import { useBookingStore } from "../../_store"
 
 export default memo(
     function StatisticsCard() {

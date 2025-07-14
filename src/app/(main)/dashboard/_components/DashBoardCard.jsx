@@ -10,7 +10,7 @@ export default function DashBoardCard({ appointment, onViewDetails }) {
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                         {appointment.name}
                     </h3>
-                    <div className='flex'>
+                    <div className='flex gap-1.5'>
                         <button
                             onClick={() => onViewDetails(appointment.id)}
                             className="flex items-center gap-2 px-2 py-2  text-white rounded-lg hover:bg-gray-700 transition-colors text-sm"

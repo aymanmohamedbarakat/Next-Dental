@@ -1,8 +1,8 @@
 'use client'
-import { useBookingStore } from "../_store"
 import DashBoardCard from "./DashBoardCard"
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
+import { useBookingStore } from "../../_store";
 
 export default function DashboardDisplay() {
     const { filteredAppointments } = useBookingStore()

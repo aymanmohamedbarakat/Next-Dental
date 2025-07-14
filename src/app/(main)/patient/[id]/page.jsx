@@ -2,9 +2,9 @@
 
 import { useParams, useRouter } from 'next/navigation'
 import { useCallback, useEffect, useState } from 'react'
-import { useBookingStore } from '../../dashboard/_store'
 import { ArrowLeft, Calendar, CheckCircle, Clock, CreditCard, DollarSign, FileText, Phone, Printer, User, X } from 'lucide-react'
 import { getStatusBadge } from '../../dashboard/_utils/Helpers'
+import { useBookingStore } from '../../_store'
 
 export default function PatientDetails() {
     const router = useRouter()
@@ -24,7 +24,7 @@ export default function PatientDetails() {
     }, [id, updatePaymentStatus])
 
     const handleBack = useCallback(() => {
-        router.push("/dashboard");
+        router.push("/");
     }, [router]);
 
 
@@ -72,8 +72,9 @@ export default function PatientDetails() {
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
                 <div className="flex items-center gap-4 mb-6 print:hidden">
-                    <button className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                    ><ArrowLeft className="w-5 h-5" /></button>
+                    <button onClick={handleBack} className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                    ><ArrowLeft className="w-5 h-5" />
+                    </button>
                     <div>
                         <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
                             Patient Details
