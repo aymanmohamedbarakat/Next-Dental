@@ -1,5 +1,4 @@
 'use client'
-
 import { useParams, useRouter } from 'next/navigation'
 import { useCallback, useEffect, useState } from 'react'
 import { ArrowLeft, Calendar, CheckCircle, Clock, CreditCard, DollarSign, FileText, Phone, Printer, User, X } from 'lucide-react'
